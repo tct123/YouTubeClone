@@ -23,15 +23,15 @@ class SuggestionsTab extends StatelessWidget {
       tags.add(Container(
         margin: EdgeInsets.only(left: 10),
         child: new FlatButton(
-          child: Text(tagList[i], style: videoTitleStyle,),
+          child: Text(
+            tagList[i],
+            style: videoTitleStyle,
+          ),
           color: buttonUnselectedIconsColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18.0),
-            side: BorderSide(color: tabBarUnselectedIconsColor, width: 0.5)
-          ),
-          onPressed: () {
-
-          },
+              borderRadius: BorderRadius.circular(18.0),
+              side: BorderSide(color: tabBarUnselectedIconsColor, width: 0.5)),
+          onPressed: () {},
         ),
       ));
     }
