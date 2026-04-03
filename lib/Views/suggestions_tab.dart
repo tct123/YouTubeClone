@@ -22,7 +22,7 @@ class SuggestionsTab extends StatelessWidget {
     for (int i = 0; i < 7; i++) {
       tags.add(Container(
         margin: EdgeInsets.only(left: 10),
-        child: new FlatButton(
+        child: new TextButton(
           child: Text(
             tagList[i],
             style: videoTitleStyle,
