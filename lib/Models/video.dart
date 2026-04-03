@@ -7,15 +7,10 @@ class Video {
   DateTime uploadDate;
   String videoTitle;
   Channel channel;
+  int index;
 
-  Video(AssetImage thumbnail, int viewCount, DateTime uploadDate,
-      String videoTitle, Channel channel) {
-    this.thumbnail = thumbnail;
-    this.viewCount = viewCount;
-    this.uploadDate = uploadDate;
-    this.videoTitle = videoTitle;
-    this.channel = channel;
-  }
+  Video(this.thumbnail, this.viewCount, this.uploadDate, this.videoTitle,
+      this.channel, this.index);
 
   String getViewCount() {
     String viewString = this.viewCount.toString();
@@ -44,8 +39,6 @@ class Video {
     }
     return viewString;
   }
-
-  int index;
 
   String getVideoTitle() {
     index = 0;
