@@ -26,10 +26,13 @@ class SuggestionsTab extends StatelessWidget {
             tagList[i],
             style: videoTitleStyle,
           ),
-          color: buttonUnselectedIconsColor,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18.0),
-              side: BorderSide(color: tabBarUnselectedIconsColor, width: 0.5)),
+          style: TextButton.styleFrom(
+            foregroundColor: buttonUnselectedIconsColor,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+                side:
+                    BorderSide(color: tabBarUnselectedIconsColor, width: 0.5)),
+          ),
           onPressed: () {},
         ),
       ));
