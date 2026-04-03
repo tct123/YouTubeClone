@@ -13,7 +13,7 @@ class Video {
       this.channel, this.index);
 
   String getViewCount() {
-    String viewString = this.viewCount.toString();
+    String viewString = viewCount.toString();
     String value = "";
     if (viewString.length >= 10) {
       value = "B";
@@ -35,16 +35,16 @@ class Video {
       viewString = viewString.substring(0, 2);
     } else {
       String newString = viewString.substring(0, 1);
-      viewString = newString + "." + viewString.substring(1, 2);
+      viewString = "$newString.${viewString.substring(1, 2)}";
     }
     return viewString;
   }
 
   String getVideoTitle() {
     index = 0;
-    if (this.videoTitle.length > 29) {
+    if (videoTitle.length > 29) {
       // fix title
-      List<String> wordList = this.videoTitle.split(" ");
+      List<String> wordList = videoTitle.split(" ");
       String newTitle = "";
       while (index != wordList.length) {
         newTitle += makeTitleRow(wordList);
@@ -54,7 +54,7 @@ class Video {
       }
       return newTitle;
     } else {
-      return this.videoTitle;
+      return videoTitle;
     }
   }
 
@@ -62,7 +62,7 @@ class Video {
     String newTitleRow = wordList[index];
     index += 1;
     while (newTitleRow.length < 29 && index != wordList.length) {
-      newTitleRow += " " + wordList[index];
+      newTitleRow += " ${wordList[index]}";
       index += 1;
     }
     if (newTitleRow.length > 29) {
@@ -72,7 +72,7 @@ class Video {
         if (i == 0) {
           newTitleRow = res[i];
         } else {
-          newTitleRow += " " + res[i];
+          newTitleRow += " ${res[i]}";
         }
       }
       index -= 1;
@@ -82,9 +82,9 @@ class Video {
 
   String getTimeSinceUpload() {
     DateTime now = DateTime.now();
-    int minutes = now.difference(this.uploadDate).inMinutes;
-    int hours = now.difference(this.uploadDate).inHours;
-    int days = now.difference(this.uploadDate).inDays;
+    int minutes = now.difference(uploadDate).inMinutes;
+    int hours = now.difference(uploadDate).inHours;
+    int days = now.difference(uploadDate).inDays;
     double weeks = days / 7;
     double months = weeks / 4;
     double years = days / 365;

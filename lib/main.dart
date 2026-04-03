@@ -11,21 +11,23 @@ import 'Models/video.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -36,74 +38,61 @@ class _MyHomePageState extends State<MyHomePage> {
     // This trailing comma makes auto-formatting nicer for build methods.
     return DefaultTabController(
       length: 5,
-      child: new Scaffold(
+      child: Scaffold(
         appBar: AppBar(
           actions: <Widget>[
             Container(
               child: Row(
                 children: <Widget>[
-                  Container(
+                  SizedBox(
                     width: 40,
-                    child: Image(
-                      image: AssetImage("assets/youtube_logo.png"),
-                    ),
+                    child: Image(image: AssetImage("assets/youtube_logo.png")),
                   ),
-                  Text(
-                    "YouTube",
-                    style: youtube,
-                  ),
+                  Text("YouTube", style: youtube),
                 ],
               ),
             ),
             Container(
-                padding: EdgeInsets.only(left: 100, bottom: 15),
-                width: 260,
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Icon(Icons.cast),
-                      Icon(Icons.video_call),
-                      Icon(Icons.search),
-                      Container(
-                        height: 30,
-                        width: 30,
-                        child: CircleAvatar(
-                            backgroundImage: channel.profilePicture),
-                      )
-                    ],
-                  ),
-                )),
+              padding: EdgeInsets.only(left: 100, bottom: 15),
+              width: 260,
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Icon(Icons.cast),
+                    Icon(Icons.video_call),
+                    Icon(Icons.search),
+                    SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: CircleAvatar(
+                        backgroundImage: channel.profilePicture,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
           backgroundColor: tabBarColor,
         ),
         body: TabBarView(
           children: [
-            new Container(
+            Container(
               color: backgroundColor,
-              child: ListView(
-                children: getVideos(false),
-              ),
+              child: ListView(children: getVideos(false)),
             ),
-            new Container(
-              color: Colors.orange,
-            ),
-            new Container(
+            Container(color: Colors.orange),
+            Container(
               color: backgroundColor,
-              child: ListView(
-                children: getVideos(true),
-              ),
+              child: ListView(children: getVideos(true)),
             ),
-            new Container(
-              color: Colors.red,
-            ),
-            new Container(
-              color: Colors.blue,
-            ),
+            Container(color: Colors.red),
+            Container(color: Colors.blue),
           ],
         ),
-        bottomNavigationBar: new TabBar(
+        bottomNavigationBar: TabBar(
           labelStyle: tabTextStyle,
           tabs: tabList,
           labelColor: tabBarSelectedIconsColor,
@@ -119,34 +108,32 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Video> videos = makeVideos();
     List<Widget> cards = [];
     if (isSubscriptionPage) {
-      cards.add(Container(
-        color: backgroundColor,
-        height: 140,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Row(children: <Widget>[
-              ChannelAvatar(channel: channel),
-            ]),
-            Divider(
-              color: tabBarUnselectedIconsColor,
-            ),
-            SuggestionsTab()
-          ],
+      cards.add(
+        Container(
+          color: backgroundColor,
+          height: 140,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Row(children: <Widget>[ChannelAvatar(channel: channel)]),
+              Divider(color: tabBarUnselectedIconsColor),
+              SuggestionsTab(),
+            ],
+          ),
         ),
-      ));
+      );
     } else {
-      cards.add(Container(
-        padding: EdgeInsets.only(top: 5, bottom: 5),
-        color: backgroundColor,
-        height: 50,
-        child: SuggestionsTab(),
-      ));
+      cards.add(
+        Container(
+          padding: EdgeInsets.only(top: 5, bottom: 5),
+          color: backgroundColor,
+          height: 50,
+          child: SuggestionsTab(),
+        ),
+      );
     }
     for (Video video in videos) {
-      cards.add(VideoCard(
-        video: video,
-      ));
+      cards.add(VideoCard(video: video));
     }
     return cards;
   }
@@ -156,46 +143,36 @@ class _MyHomePageState extends State<MyHomePage> {
     "How To Get Started In Game Development",
     "I Practiced Touch Typing Every Day For 30 Days",
     "How To Overcome Coders Block",
-    "Super Quick Python Porject Ideas For Beginners!"
+    "Super Quick Python Porject Ideas For Beginners!",
   ];
 
-  Channel channel =
-      new Channel("Kalle Hallden", AssetImage("assets/profilepics/5.jpg"));
+  Channel channel = Channel(
+    "Kalle Hallden",
+    AssetImage("assets/profilepics/5.jpg"),
+  );
 
   List<Video> makeVideos() {
     List<Video> vids = [];
     for (int i = 0; i < 5; i++) {
-      vids.add(new Video(
-          AssetImage("assets/thumbnails/" + i.toString() + ".jpg"),
+      vids.add(
+        Video(
+          AssetImage("assets/thumbnails/$i.jpg"),
           120000,
-          DateTime.now().subtract(new Duration(days: 400)),
+          DateTime.now().subtract(Duration(days: 400)),
           videoTitles[i],
           channel,
-          0)); // add "i"
+          0,
+        ),
+      ); // add "i"
     }
     return vids;
   }
 
   List<Widget> tabList = [
-    Tab(
-      icon: new Icon(Icons.home),
-      text: "Home",
-    ),
-    Tab(
-      icon: new Icon(Icons.explore),
-      text: "Explore",
-    ),
-    Tab(
-      icon: new Icon(Icons.subscriptions),
-      text: "Subscriptions",
-    ),
-    Tab(
-      icon: new Icon(Icons.email),
-      text: "Inbox",
-    ),
-    Tab(
-      icon: new Icon(Icons.video_library),
-      text: "Library",
-    )
+    Tab(icon: Icon(Icons.home), text: "Home"),
+    Tab(icon: Icon(Icons.explore), text: "Explore"),
+    Tab(icon: Icon(Icons.subscriptions), text: "Subscriptions"),
+    Tab(icon: Icon(Icons.email), text: "Inbox"),
+    Tab(icon: Icon(Icons.video_library), text: "Library"),
   ];
 }
