@@ -44,7 +44,7 @@ class Video {
     index = 0;
     if (this.videoTitle.length > 29) {
       // fix title
-      List wordList = this.videoTitle.split(" ");
+      List<String> wordList = this.videoTitle.split(" ");
       String newTitle = "";
       while (index != wordList.length) {
         newTitle += makeTitleRow(wordList);

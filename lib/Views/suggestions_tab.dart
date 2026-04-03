@@ -40,7 +40,7 @@ class SuggestionsTab extends StatelessWidget {
     return tags;
   }
 
-  List<String> tagList = [
+  final List<String> tagList = [
     "All",
     "Today",
     "Continue watiching",

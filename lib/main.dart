@@ -170,7 +170,8 @@ class _MyHomePageState extends State<MyHomePage> {
           120000,
           DateTime.now().subtract(new Duration(days: 400)),
           videoTitles[i],
-          channel));
+          channel,
+          0)); // add "i"
     }
     return vids;
   }
