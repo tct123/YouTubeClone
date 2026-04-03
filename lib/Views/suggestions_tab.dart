@@ -49,5 +49,5 @@ class SuggestionsTab extends StatelessWidget {
     "Python",
   ];
 
-  const SuggestionsTab({super.key});
+  SuggestionsTab({super.key});
 }

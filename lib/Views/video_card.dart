@@ -39,25 +39,23 @@ class VideoCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(video.getVideoTitle(), style: videoTitleStyle),
-                      Container(
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              video.channel.channelName,
-                              style: videoInfoStyle,
-                            ),
-                            Text(" ∙ ", style: videoInfoStyle),
-                            Text(
-                              "${video.getViewCount()} views",
-                              style: videoInfoStyle,
-                            ),
-                            Text(" ∙ ", style: videoInfoStyle),
-                            Text(
-                              "${video.getTimeSinceUpload()} ago",
-                              style: videoInfoStyle,
-                            ),
-                          ],
-                        ),
+                      Row(
+                        children: <Widget>[
+                          Text(
+                            video.channel.channelName,
+                            style: videoInfoStyle,
+                          ),
+                          Text(" ∙ ", style: videoInfoStyle),
+                          Text(
+                            "${video.getViewCount()} views",
+                            style: videoInfoStyle,
+                          ),
+                          Text(" ∙ ", style: videoInfoStyle),
+                          Text(
+                            "${video.getTimeSinceUpload()} ago",
+                            style: videoInfoStyle,
+                          ),
+                        ],
                       ),
                     ],
                   ),

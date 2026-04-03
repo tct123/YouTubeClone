@@ -29,10 +29,10 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     // This trailing comma makes auto-formatting nicer for build methods.
@@ -41,37 +41,33 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
           actions: <Widget>[
-            Container(
-              child: Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 40,
-                    child: Image(image: AssetImage("assets/youtube_logo.png")),
-                  ),
-                  Text("YouTube", style: youtube),
-                ],
-              ),
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 40,
+                  child: Image(image: AssetImage("assets/youtube_logo.png")),
+                ),
+                Text("YouTube", style: youtube),
+              ],
             ),
             Container(
               padding: EdgeInsets.only(left: 100, bottom: 15),
               width: 260,
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Icon(Icons.cast),
-                    Icon(Icons.video_call),
-                    Icon(Icons.search),
-                    SizedBox(
-                      height: 30,
-                      width: 30,
-                      child: CircleAvatar(
-                        backgroundImage: channel.profilePicture,
-                      ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Icon(Icons.cast),
+                  Icon(Icons.video_call),
+                  Icon(Icons.search),
+                  SizedBox(
+                    height: 30,
+                    width: 30,
+                    child: CircleAvatar(
+                      backgroundImage: channel.profilePicture,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
