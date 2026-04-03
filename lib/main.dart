@@ -95,7 +95,7 @@ class MyHomePageState extends State<MyHomePage> {
           unselectedLabelColor: tabBarUnselectedIconsColor,
           indicatorColor: Colors.transparent,
         ),
-        backgroundColor: tabBarColor,
+        backgroundColor: backgroundColor,
       ),
     );
   }

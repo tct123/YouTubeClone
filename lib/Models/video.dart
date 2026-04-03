@@ -9,8 +9,14 @@ class Video {
   Channel channel;
   int index;
 
-  Video(this.thumbnail, this.viewCount, this.uploadDate, this.videoTitle,
-      this.channel, this.index);
+  Video(
+    this.thumbnail,
+    this.viewCount,
+    this.uploadDate,
+    this.videoTitle,
+    this.channel,
+    this.index,
+  );
 
   String getViewCount() {
     String viewString = viewCount.toString();
